@@ -1,18 +1,32 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Home from './pages/home';
+import Layout from './pages/comuns/nav-layout-default';
+import GetAllUser from './pages/vendas';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="post" element={<PostUser />} />
-        <Route path="get" element={<GetAllUser />} />
+        <Route path="/vendas" element={<GetAllUser />} />
         </Route>
       </Routes>
     </BrowserRouter>
-  );
+  )
+
+  // <Route index element={<Home />} />
+
+  // <Route element={<GetAllUser />} />
+
+
+  // return (
+  //   <Router>
+  //     <Routes>
+  //       <Route path="/" caseSensitive={false} element={<Home />} />
+  //     </Routes>
+  //   </Router>
+  // );
 }
 
 
