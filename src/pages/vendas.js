@@ -1,41 +1,12 @@
 import React, { useState, useEffect } from 'react';
+//import axios from "axios";
 
-// const Vendas = () => {
-// //   const [items, setItems] = useState([]);
 
-// //   useEffect(() => {
-// //     fetchItems();
-// //   }, []);
-
-// //   const fetchItems = async () => {
-// //     try {
-// //       const response = await fetch('your-api-endpoint');
-// //       const data = await response.json();
-// //       setItems(data);
-// //     } catch (error) {
-// //       console.error('Error fetching data:', error);
-// //     }
-// //   };
-
-//   return (
-//     <div>
-//       <h1>Home Page</h1>
-//       {/* <ul>
-//         {items.map(item => (
-//           <li key={item.id}>{item.name}</li>
-//         ))}
-//       </ul> */}
-//     </div>
-//   );
-// };
-
-// export default Vendas;
-
-const GetAllUser = () => {
+const GetVendas = () => {
     // const [users, setAllUser] = useState();
     // useEffect(() => {
     //   axios
-    //     .get("http://localhost:8000/api/all")
+    //     .get("http://localhost:8000/api/vendas")
     //     .then((response) => setAllUser(response.data))
     //     .catch((err) => {
     //       console.error(err);
@@ -58,4 +29,4 @@ const GetAllUser = () => {
         </>
         );
     };
-export default GetAllUser
+export default GetVendas
