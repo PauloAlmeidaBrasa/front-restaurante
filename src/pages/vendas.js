@@ -14,7 +14,7 @@ const GetVendas = () => {
     // }, []);
       return (
         <>
-          <h1>Vendas</h1>
+          <h1>Vendssssss</h1>
           {/* <ul>
           {users && users.map(user => 
             <li key={user.id}>
