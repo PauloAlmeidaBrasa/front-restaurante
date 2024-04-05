@@ -12,7 +12,12 @@ const GetCardapios = () => {
   const fetchItems = async () => {
     try {
       axios
-        .get("http://localhost:8000/api/cardapios")
+        .get("http://localhost:8000/api/cardapios",{
+          params: {
+            limit: 50,
+            offset: 313123
+          }
+        })
         .then((response) => {
           console.log("response  ====>  ",response)
           setCardapios(response.data)
