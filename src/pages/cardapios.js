@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
+/* import  dotenv from 'dotenv'
+dotenv.config() */
+
 
 const GetCardapios = () => {
   const [cardapios, setCardapios] = useState();
@@ -9,13 +12,14 @@ const GetCardapios = () => {
     fetchItems();
   }, []);
 
+  
   const fetchItems = async () => {
     try {
       axios
-        .get("http://localhost:8000/api/cardapios",{
+        .get(`${process.env.REACT_APP_API_URL}/cardapios`,{
           params: {
             limit: 50,
-            offset: 313123
+            offset: 0
           }
         })
         .then((response) => {
