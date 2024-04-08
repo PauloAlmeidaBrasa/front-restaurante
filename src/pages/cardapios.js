@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
+import { Link } from "react-router-dom";
 /* import  dotenv from 'dotenv'
 dotenv.config() */
 
 
 const GetCardapios = () => {
   const [cardapios, setCardapios] = useState([]);
-  const items = ['card1','card2','card3','card4','card5']
 
   useEffect(() => {
     fetchItems();
@@ -23,36 +23,29 @@ const GetCardapios = () => {
           }
         })
         .then((response) => {
-          console.log("response  ====>  ",response)
           setCardapios(response.data)
         })
         .catch((err) => {
           console.error(err);
         });
-
-
-      // const response = await fetch('http://localhost:8000/api/cardapios');
-      // const data = await response.json();
-      // console.log(data)
-      // setItems(data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
+ 
+  //onClick={() => handleClick(item.id)}
 
   return (
     <>
     <div>
-      <h1>Mostra</h1>
+      <h1>Mostra Cardápio</h1>
       <ul>
         { 
           cardapios.map(item => {
-            //console.log(items)
-            console.log(item)
             return (
-              <li key={item.id}>{item.nome}</li>
+              <li><Link to={`/cardapio/${item.id}`}><div >{item.nome}</div></Link></li>
             )
-          })
+          })  
         }
       </ul>
     </div>
@@ -64,3 +57,5 @@ export default GetCardapios;
 /* {items.map(item => (
   <li key={item.id}>{item.name}</li>
 ))} */
+
+{/* <li key={item.id}>{item.nome}</li> */}

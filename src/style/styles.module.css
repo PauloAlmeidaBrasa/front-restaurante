@@ -1,0 +1,34 @@
+
+.container {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.heading {
+  color: blue;
+}
+
+.input {
+  width: 100%;
+  padding: 5px;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 5px;
+}
+
+.pratos-list {
+  list-style-type: none;
+}
+
+.button {
+  /* Button styles */
+}
+ .formStyle form div {
+  display: flex;
+  /* flex-direction: column-reverse; */
+  flex-direction: column;
+}

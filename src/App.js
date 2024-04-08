@@ -4,6 +4,7 @@ import Home from './pages/home';
 import Layout from './pages/comuns/nav-layout-default';
 import GetVendas from './pages/vendas';
 import GetCardapiosardapios from './pages/cardapios';
+import Cardapio from './pages/cardapio';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/vendas" element={<GetVendas />} />
         <Route path="/cardapios" element={<GetCardapiosardapios />} />
+        <Route path="/cardapio/:id" element={< Cardapio />} />
         </Route>
       </Routes>
     </BrowserRouter>
