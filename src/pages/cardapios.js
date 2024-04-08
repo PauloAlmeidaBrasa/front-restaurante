@@ -5,7 +5,7 @@ dotenv.config() */
 
 
 const GetCardapios = () => {
-  const [cardapios, setCardapios] = useState();
+  const [cardapios, setCardapios] = useState([]);
   const items = ['card1','card2','card3','card4','card5']
 
   useEffect(() => {
@@ -41,15 +41,26 @@ const GetCardapios = () => {
   };
 
   return (
+    <>
     <div>
       <h1>Mostra</h1>
-      { <ul>
-        {/* {items.map(item => (
-          <li key={item.id}>{item.name}</li>
-        ))} */}
-        </ul> }
+      <ul>
+        { 
+          cardapios.map(item => {
+            //console.log(items)
+            console.log(item)
+            return (
+              <li key={item.id}>{item.nome}</li>
+            )
+          })
+        }
+      </ul>
     </div>
-  );
+    </>);
 };
 
 export default GetCardapios;
+
+/* {items.map(item => (
+  <li key={item.id}>{item.name}</li>
+))} */
