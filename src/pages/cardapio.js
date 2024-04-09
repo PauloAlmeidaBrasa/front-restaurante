@@ -36,25 +36,43 @@ const Cardapio = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
+
     e.preventDefault();
+    const formInputs = e.target
+    const cardapioNome = formInputs[0].value
+    const cardapioDescricao = formInputs[1].value
+    console.log(formInputs)
+    //const cardapioDescricao = formInputs[2].value
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/cardapio/update`,{
+        params: {
+          id: id,
+          nome: cardapioNome,
+          descricao: cardapioDescricao
+        }
+      });
+      //setFormData(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
 
   };
 
   return (
-<div className={styles.formStyle} >
+<div className={styles.container} >
   <form  onSubmit={handleSubmit}>
-    <div >
+    <div className={styles.styleDivnome} >
       <label htmlFor="name">Name:</label>
       <input
         type="text"
-        id="name"
-        name="name"
+        id="nome"
+        name="nome"
         value={formData.nome}
         onChange={handleChange}
       />
     </div>
-    <div>
+    <div className={styles.styleDivnome}>
       <label htmlFor="descricao">Description:</label>
       <textarea
         id="descricao"
@@ -64,17 +82,17 @@ const Cardapio = () => {
       />
     </div>
 
-    <div>
+    <div className={styles.styleDivnome} >
       <label>Pratos:</label>
   
-        {           
+     {           
         <select>
           {formData.pratos.map(prato => (
             <option key={prato.id}>{prato.nome}</option>
           ))}
         </select> } 
     </div>
-    <button type="submit">Submit</button>
+    <button className={styles.buttonForm}  type="submit">Submit</button>
   </form>
 </div>
   );

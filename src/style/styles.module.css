@@ -4,6 +4,11 @@
   padding: 10px;
   background-color: #f0f0f0;
 }
+.styleDivnome {
+  display: flex;
+  /* flex-direction: column-reverse; */
+  flex-direction: column;
+}
 
 .heading {
   color: blue;
@@ -24,7 +29,8 @@
   list-style-type: none;
 }
 
-.button {
+.buttonForm {
+  margin: 20px 0px;
   /* Button styles */
 }
  .formStyle form div {
