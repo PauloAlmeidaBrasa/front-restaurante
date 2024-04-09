@@ -15,9 +15,12 @@ const Cardapio = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/cardapio/${id}`); // Adjust the endpoint URL accordingly
-        const { name, descricao, pratos } = response.data;
-        setFormData({ name, descricao, pratos });
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/cardapio`,{
+          params: {
+            id: id
+          }
+        });
+        setFormData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -35,75 +38,47 @@ const Cardapio = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here, e.g., submit data to the server
+
   };
-/* 
-  const [cardapio, mountCardapio] = useState([]);
-
-  const fetchItems = async () => {
-    try {
-      axios
-        .get(`${process.env.REACT_APP_API_URL}/cardapio/${id}`,{
-          params: {
-            limit: 50,
-            offset: 0
-          }
-        })
-        .then((response) => {
-
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }; */
 
   return (
-    <div>
-      <h1>Cardapio Detail</h1>
-      <div className={styles.formStyle} >
-        <form  onSubmit={handleSubmit}>
-          <div >
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="descricao">Description:</label>
-            <textarea
-              id="descricao"
-              name="descricao"
-              value={formData.descricao}
-              onChange={handleChange}
-            />
-          </div>
-          {/* Example for rendering pratos */}
-          <div>
-            <label>Pratos:</label>
-            <ul>
-              {formData.pratos.map(prato => (
-                <li key={prato.id}>{prato.name}</li>
-              ))}
-            </ul>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+<div className={styles.formStyle} >
+  <form  onSubmit={handleSubmit}>
+    <div >
+      <label htmlFor="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value={formData.nome}
+        onChange={handleChange}
+      />
     </div>
+    <div>
+      <label htmlFor="descricao">Description:</label>
+      <textarea
+        id="descricao"
+        name="descricao"
+        value={formData.descricao}
+        onChange={handleChange}
+      />
+    </div>
+
+    <div>
+      <label>Pratos:</label>
+  
+        {           
+        <select>
+          {formData.pratos.map(prato => (
+            <option key={prato.id}>{prato.nome}</option>
+          ))}
+        </select> } 
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
   );
 };
 
 
-
 export default Cardapio;
-
-
-
-
